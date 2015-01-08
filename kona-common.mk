@@ -31,7 +31,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.smdk4x12.usb.rc:root/init.smdk4x12.usb.rc \
     $(LOCAL_PATH)/rootdir/ueventd.smdk4x12.rc:root/ueventd.smdk4x12.rc \
     $(LOCAL_PATH)/rootdir/ueventd.smdk4x12.rc:recovery/root/ueventd.smdk4x12.rc \
-    $(LOCAL_PATH)/rootdir/lpm.rc:root/lpm.rc \
     $(LOCAL_PATH)/rootdir/fstab.smdk4x12:root/fstab.smdk4x12
 
 # Packages
@@ -48,6 +47,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nvram_net.txt:system/etc/wifi/nvram_net.txt \
     $(LOCAL_PATH)/configs/nvram_net.txt_murata:system/etc/wifi/nvram_net.txt_murata \
     $(LOCAL_PATH)/configs/80mac:system/etc/init.d/80mac
+
+# Charger
+ PRODUCT_PACKAGES += \
+    charger_res_images
 
 # Camera
 PRODUCT_PACKAGES += \

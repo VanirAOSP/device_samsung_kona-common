@@ -73,29 +73,35 @@ static const struct sensor_t sSensorList[] = {
         { "LIS3DH Acceleration Sensor",
           "STMicroelectronics",
           1, SENSORS_ACCELERATION_HANDLE,
-          SENSOR_TYPE_ACCELEROMETER, RANGE_A, RESOLUTION_A, 0.20f, 10000, 0, 0, { } },
+          SENSOR_TYPE_ACCELEROMETER, RANGE_A, RESOLUTION_A, 0.20f, 10000, 0, 0,
+          SENSOR_STRING_TYPE_ACCELEROMETER, "", 0, SENSOR_FLAG_CONTINUOUS_MODE, { } },
         { "MS-3R (YAS532) Magnetic Sensor",
           "Yamaha Corporation",
           1, SENSORS_MAGNETIC_FIELD_HANDLE,
-          SENSOR_TYPE_MAGNETIC_FIELD, 2000.0f, 0.06f, 6.8f, 10000, 0, 0, { } },
+          SENSOR_TYPE_MAGNETIC_FIELD, 2000.0f, 0.06f, 6.8f, 10000, 0, 0,
+          SENSOR_STRING_TYPE_MAGNETIC_FIELD, "", 0, SENSOR_FLAG_CONTINUOUS_MODE, { } },
 	{ "MS-x Orientation Sensor",
           "Yamaha Corporation",
           1, SENSORS_ORIENTATION_HANDLE,
-          SENSOR_TYPE_ORIENTATION,  360.0f, CONVERT_O, 7.8f, 10000, 0, 0, { } },
+          SENSOR_TYPE_ORIENTATION,  360.0f, CONVERT_O, 7.8f, 10000, 0, 0,
+          SENSOR_STRING_TYPE_ORIENTATION, "", 0, SENSOR_FLAG_CONTINUOUS_MODE, { } },
 #ifndef ALS3201_SENSOR
 	{ "GP2AP030 Light sensor",
           "Sharp",
           1, SENSORS_LIGHT_HANDLE,
-          SENSOR_TYPE_LIGHT, 10240.0f, 1.0f, 0.75f, 0, 0, 0, { } },
+          SENSOR_TYPE_LIGHT, 10240.0f, 1.0f, 0.75f, 0, 0, 0,
+          SENSOR_STRING_TYPE_LIGHT, "", 0, SENSOR_FLAG_CONTINUOUS_MODE, { } },
         { "GP2AP030 Proximity sensor",
           "Sharp",
           1, SENSORS_PROXIMITY_HANDLE,
-          SENSOR_TYPE_PROXIMITY, 5.0f, 1.0f, 0.75f, 0, 0, 0, { } },
+          SENSOR_TYPE_PROXIMITY, 5.0f, 1.0f, 0.75f, 0, 0, 0,
+          SENSOR_STRING_TYPE_PROXIMITY, "", 0, SENSOR_FLAG_WAKE_UP, { } },
 #else
         { "AL3201 Light Sensor",
           "LITEON",
           1, SENSORS_LIGHT_HANDLE,
-          SENSOR_TYPE_LIGHT, 10240.0f, 1.0f, 0.75f, 0, 0, 0, { } },
+          SENSOR_TYPE_LIGHT, 10240.0f, 1.0f, 0.75f, 0, 0, 0,
+          SENSOR_STRING_TYPE_LIGHT, "", 0, SENSOR_FLAG_CONTINUOUS_MODE, { } },
 #endif
 };
 
@@ -370,7 +376,7 @@ static int open_sensors(const struct hw_module_t* module, const char* id,
         memset(&dev->device, 0, sizeof(sensors_poll_device_t));
 
         dev->device.common.tag = HARDWARE_DEVICE_TAG;
-        dev->device.common.version  = 0;
+        dev->device.common.version  = SENSORS_DEVICE_API_VERSION_1_0;
         dev->device.common.module   = const_cast<hw_module_t*>(module);
         dev->device.common.close    = poll__close;
         dev->device.activate        = poll__activate;

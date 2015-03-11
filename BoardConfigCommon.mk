@@ -58,6 +58,7 @@ BOARD_SEPOLICY_UNION += \
     qmux.te \
     rild.te \
     secril.te \
+    sysinit.te \
     system.te \
     ueventd.te \
     wpa_supplicant.te

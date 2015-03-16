@@ -11,6 +11,10 @@
 /dev/ttyUSB0                            u:object_r:radio_device:s0
 /dev/diag                               u:object_r:diagnostic_device:s0
 
+/dev/umts_boot0				u:object_r:ril_device:s0
+/dev/umts_ipc0				u:object_r:ril_device:s0
+/dev/umts_rfs0				u:object_r:ril_device:s0
+
 # GPS
 /dev/ttySAC1                            u:object_r:gps_device:s0
 

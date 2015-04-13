@@ -18,9 +18,6 @@ allow rild ril_device:chr_file { read write ioctl open };
 allow rild radio_data_file:dir setattr;
 allow rild self:capability dac_override;
 allow rild unlabeled:dir search;
-allow rild unlabeled:file { read getattr open setattr };
-
+allow rild unlabeled:file { write read getattr open setattr };
 allow rild dumpstate_exec:file getattr;
 allow rild system_data_file:dir write;
-allow rild unlabeled:file write;
-

@@ -3,3 +3,4 @@ allow init init:process { execmem };
 allow init init:tcp_socket { read write create };
 allow init port:tcp_socket name_connect;
 allow init self:tcp_socket { read write getopt connect };
+allow init kernel:system syslog_read;

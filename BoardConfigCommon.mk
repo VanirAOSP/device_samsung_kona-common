@@ -60,9 +60,9 @@ BOARD_SEPOLICY_UNION += \
     qmux.te \
     rild.te \
     secril.te \
+    shell.te \
     sysinit.te \
     system.te \
-    system_app.te \
     ueventd.te \
     untrusted_app.te \
     wpa_supplicant.te

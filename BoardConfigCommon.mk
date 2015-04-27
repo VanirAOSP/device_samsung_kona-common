@@ -60,6 +60,7 @@ BOARD_SEPOLICY_UNION += \
     qmux.te \
     rild.te \
     secril.te \
+    shell.te \
     sysinit.te \
     system.te \
     ueventd.te \

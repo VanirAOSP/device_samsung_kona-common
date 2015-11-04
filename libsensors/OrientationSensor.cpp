@@ -23,6 +23,7 @@
 #include <sys/select.h>
 #include <cutils/properties.h>
 #include <cutils/log.h>
+#include <string.h>
 
 
 #include "OrientationSensor.h"

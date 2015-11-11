@@ -1,0 +1,2 @@
+allow radio kernel:system module_request;
+allow radio log_device:chr_file { write open };

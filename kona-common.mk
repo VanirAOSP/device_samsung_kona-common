@@ -38,7 +38,8 @@ PRODUCT_PACKAGES += \
     libsecril-client \
     tiny_hw \
     SamsungServiceMode \
-    VoicePlus
+    VoicePlus \
+    Snap
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml \

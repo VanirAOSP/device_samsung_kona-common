@@ -1,5 +1,6 @@
 allow system_server efs_file:dir search;
-# allow system_server default_prop:property_service set;
 allow system_server dex2oat_exec:file execute;
 allow system_server log_device:dir search;
 allow system_server system_file:file execmod;
+allow system_server log_device:chr_file { write open };
+allow system_server unlabeled:file write;

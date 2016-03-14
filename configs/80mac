@@ -3,4 +3,4 @@
 # Copy mac address to correct file to be read by macloader
 #
 
-busybox cat /efs/wifi/.mac.cob > /efs/wifi/.mac.info
+toybox cat /efs/wifi/.mac.cob > /efs/wifi/.mac.info

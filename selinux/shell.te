@@ -1,2 +1,0 @@
-allow shell kernel:system { module_request };
-allow shell su:process signal;

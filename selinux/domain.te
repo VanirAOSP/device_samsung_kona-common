@@ -1,4 +1,5 @@
-## /dev/mali, /dev/ump
-allow domain mali_device:chr_file rw_file_perms;
+allow domain kernel:system module_request;
+allow domain log_device:chr_file { write read open };
+allow domain log_device:dir search;
 
-
+type efs_device_file, dev_type;

@@ -1,2 +1,0 @@
-allow system_app log_device:chr_file write;
-# allow system_app sysfs:file write;

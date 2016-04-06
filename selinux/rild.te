@@ -1,31 +1,8 @@
-## RIL
-allow rild radio_device:chr_file rw_file_perms;
-allow rild { efs_file }:file rw_file_perms;
-allow rild self:netlink_socket { create bind read write };
-allow rild self:netlink_route_socket { write };
-allow rild rild:process { execmem };
-
-# Talk to qmuxd
-qmux_socket(rild)
-
-# Allow logging diagnostic items
-allow rild diagnostic_device:chr_file rw_file_perms;
-
-# XXX label with own type?
-allow rild sysfs:file { read open write getattr };
-
-allow rild ril_device:chr_file { read write ioctl open };
-allow rild radio_data_file:dir setattr;
-allow rild self:capability dac_override;
-allow rild unlabeled:dir search;
-allow rild unlabeled:file { read getattr open setattr };
-allow rild dumpstate_exec:file getattr;
-allow rild system_data_file:dir write;
-allow rild unlabeled:file write;
-allow rild log_device:chr_file { write open };
-allow rild proc_net:file { write };
-allow rild init:dir search;
-allow rild init:file { read getattr open };
-allow rild init:unix_stream_socket { listen write getopt read accept };
-allow rild system_data_file:dir { remove_name add_name setattr };
-allow rild devpts:chr_file ioctl;
+allow rild at_distributor:dir search;
+allow rild at_distributor:file { read getattr open };
+allow rild gpsd:dir search;
+allow rild gpsd:file { read getattr open };
+allow rild proc_net:file write;
+allow rild sysfs:file write;
+allow rild userdata_block_device:blk_file { read open };
+allow rild mediaserver:dir search;

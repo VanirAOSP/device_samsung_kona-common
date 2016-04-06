@@ -1,0 +1,6 @@
+type SMD-daemon, domain;
+type SMD-daemon_exec, exec_type, file_type;
+init_daemon_domain(SMD-daemon)
+domain_trans(init, rootfs, SMD-daemon)
+
+allow SMD-daemon self:capability setuid;

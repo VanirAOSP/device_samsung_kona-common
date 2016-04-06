@@ -1,0 +1,18 @@
+type cpboot-daemon, domain;
+type cpboot-daemon_exec, exec_type, file_type;
+init_daemon_domain(cpboot-daemon)
+domain_trans(init, rootfs, cpboot-daemon)
+
+dontaudit cpboot-daemon usbfs:dir search;
+dontaudit cpboot-daemon usbfs:filesystem mount;
+
+allow cpboot-daemon cgroup:dir { create add_name };
+allow cpboot-daemon efs_file:file { read write open };
+allow cpboot-daemon init:unix_stream_socket connectto;
+allow cpboot-daemon property_socket:sock_file write;
+allow cpboot-daemon radio_device:chr_file { read write ioctl open };
+allow cpboot-daemon radio_prop:property_service set;
+allow cpboot-daemon self:capability { setuid dac_override };
+allow cpboot-daemon sysfs:file write;
+allow cpboot-daemon userdata_block_device:blk_file { read open };
+allow cpboot-daemon efs_file:dir search;

@@ -1,2 +1,0 @@
-allow installd kernel:system module_request;
-allow installd log_device:chr_file { write open };

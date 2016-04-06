@@ -1,0 +1,4 @@
+domain_trans(init, rootfs, gpsd)
+
+allow gpsd rild:unix_stream_socket connectto;
+allow gpsd sysfs_wake_lock:file { read write open };

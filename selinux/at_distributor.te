@@ -5,7 +5,7 @@ domain_trans(init, rootfs, at_distributor)
 
 allow at_distributor DR-daemon:unix_stream_socket connectto;
 allow at_distributor property_socket:sock_file write;
-allow at_distributor radio_data_file:file { read getattr open };
+allow at_distributor radio_data_file:file { write create read getattr open };
 allow at_distributor radio_prop:property_service set;
 allow at_distributor rild:unix_stream_socket connectto;
 allow at_distributor self:capability dac_override;
@@ -16,5 +16,6 @@ allow at_distributor efs_file:file getattr;
 allow at_distributor init:unix_stream_socket connectto;
 allow at_distributor efs_file:file { read open setattr };
 allow at_distributor self:capability { setuid fowner chown fsetid };
-allow at_distributor radio_data_file:dir search;
 allow at_distributor efs_file:dir search;
+allow at_distributor radio_data_file:dir { search add_name write };
+allow at_distributor efs_file:dir { search getattr };

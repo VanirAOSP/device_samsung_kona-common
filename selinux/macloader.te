@@ -1,0 +1,2 @@
+allow macloader efs_file:file { read open getattr };
+allow macloader efs_file:dir search;

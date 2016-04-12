@@ -7,6 +7,7 @@
 /system/bin/geomagneticd	u:object_r:geomagneticd_exec:s0
 
 /data/system/yas.cfg		u:object_r:gps_data_file:s0
+/data/system/yas-backup.cfg	u:object_r:gps_data_file:s0
 /data/system/gps(/.*)?		u:object_r:gps_data_file:s0
 /data/misc/radio(/.*)?		u:object_r:radio_data_file:s0
 /data/.socket_stream		u:object_r:radio_data_file:s0
@@ -14,6 +15,7 @@
 
 /dev/__cbd_msg_			u:object_r:radio_device:s0
 /dev/ttySAC0			u:object_r:serial_device:s0
+/dev/ttySAC1			u:object_r:gps_device:s0
 /dev/ttySAC2			u:object_r:serial_device:s0
 /dev/ttyGS0			u:object_r:serial_device:s0
 /dev/mali			u:object_r:gpu_device:s0
@@ -22,6 +24,7 @@
 /dev/umts_ipc0			u:object_r:radio_device:s0
 /dev/umts_rfs0			u:object_r:radio_device:s0
 /dev/link_pm			u:object_r:radio_device:s0
+/dev/rfkill			u:object_r:radio_device:s0
 
 /dev/block/mmcblk0p3		u:object_r:userdata_block_device:s0
 /dev/block/mmcblk0p7		u:object_r:userdata_block_device:s0

@@ -9,3 +9,7 @@ allow geomagneticd input_device:dir { read open };
 allow geomagneticd gps_data_file:file { read getattr open };
 allow geomagneticd sysfs:file write;
 allow geomagneticd input_device:dir search;
+allow geomagneticd gps_data_file:dir { write remove_name add_name };
+allow geomagneticd gps_data_file:file { write rename create open setattr };
+# load SHIM libraries
+allow init geomagneticd:process noatsecure;

@@ -5,6 +5,7 @@ domain_trans(init, rootfs, cpboot-daemon)
 
 dontaudit cpboot-daemon usbfs:dir search;
 dontaudit cpboot-daemon usbfs:filesystem mount;
+dontaudit cpboot-daemon self:capability mknod;
 
 allow cpboot-daemon cgroup:dir { create add_name };
 allow cpboot-daemon efs_file:file { read write open };
@@ -16,3 +17,5 @@ allow cpboot-daemon self:capability { setuid dac_override };
 allow cpboot-daemon sysfs:file write;
 allow cpboot-daemon userdata_block_device:blk_file { read open };
 allow cpboot-daemon efs_file:dir search;
+allow cpboot-daemon efs_file:file { read write };
+allow cpboot-daemon device:dir { write };

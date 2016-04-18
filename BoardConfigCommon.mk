@@ -36,6 +36,7 @@ BOARD_EXYNOS4X12_TABLET_HAS_LED_BUTTONS := true
 # Charging mode
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
 BOARD_BATTERY_DEVICE_NAME := "battery"
+NO_CHARGER_LED := true
 
 # inherit from the proprietary version
 -include vendor/samsung/kona/BoardConfigVendor.mk

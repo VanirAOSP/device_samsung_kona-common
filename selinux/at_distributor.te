@@ -19,3 +19,4 @@ allow at_distributor self:capability { setuid fowner chown fsetid };
 allow at_distributor efs_file:dir search;
 allow at_distributor radio_data_file:dir { search add_name write };
 allow at_distributor efs_file:dir { search getattr };
+allow at_distributor radio_data_file:file setattr;

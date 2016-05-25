@@ -19,3 +19,4 @@ allow cpboot-daemon self:capability { setuid dac_override };
 allow cpboot-daemon sysfs:file write;
 allow cpboot-daemon userdata_block_device:blk_file { read open };
 allow cpboot-daemon efs_file:dir search;
+allow cpboot-daemon sysfs_wake_lock:file { open append };

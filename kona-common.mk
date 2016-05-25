@@ -35,14 +35,17 @@ PRODUCT_COPY_FILES += \
 
 # Packages
 PRODUCT_PACKAGES += \
+    libsamsung_symbols \
     libsecril-client \
+    libsecril-client-sap \
     tiny_hw \
+    tinyplay \
     SamsungServiceMode \
-    VoicePlus \
-    Snap
+    VoicePlus
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml \
+    $(LOCAL_PATH)/configs/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     $(LOCAL_PATH)/configs/nvram_mfg.txt:system/etc/wifi/nvram_mfg.txt \
     $(LOCAL_PATH)/configs/nvram_mfg.txt_murata:system/etc/wifi/nvram_mfg.txt_murata \
     $(LOCAL_PATH)/configs/nvram_net.txt:system/etc/wifi/nvram_net.txt \

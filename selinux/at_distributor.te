@@ -20,3 +20,7 @@ allow at_distributor efs_file:dir search;
 allow at_distributor radio_data_file:dir { search add_name write };
 allow at_distributor efs_file:dir { search getattr };
 allow at_distributor radio_data_file:file setattr;
+allow at_distributor servicemanager:binder call;
+allow at_distributor shell_exec:file { read execute open };
+allow at_distributor system_file:file execute_no_trans;
+allow at_distributor zygote_exec:file { read getattr open execute execute_no_trans };

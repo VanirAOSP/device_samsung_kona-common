@@ -20,6 +20,9 @@
 
 LOCAL_PATH := device/samsung/kona-common
 
+# For KK blobs
+MALLOC_IMPL := dlmalloc
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := $(LOCAL_PATH)/bluetooth/vnd_kona.txt

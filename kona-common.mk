@@ -35,6 +35,7 @@ PRODUCT_COPY_FILES += \
 
 # Packages
 PRODUCT_PACKAGES += \
+    libc_pthread \
     libsamsung_symbols \
     libsecril-client \
     libsecril-client-sap \

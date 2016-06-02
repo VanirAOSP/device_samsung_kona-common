@@ -16,6 +16,7 @@
 
 #include <stdlib.h>
 #include <malloc.h>
+#include "../upstream-dlmalloc/malloc.c"
 
 extern "C" int _ZN7android6Parcel13writeString16EPKDsj();
 extern "C" int _ZN7android6Parcel13writeString16EPKtj(){
@@ -43,7 +44,7 @@ extern "C" void *CRYPTO_malloc(int num, const char *file, int line){
 	if (num <= 0)
 		return NULL;
 	else
-		return malloc(num);
+		return dlmalloc(num);
 }
 
 extern "C" void RIL_register_socket();

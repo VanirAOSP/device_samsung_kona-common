@@ -24,3 +24,4 @@ allow at_distributor servicemanager:binder call;
 allow at_distributor shell_exec:file { read execute open };
 allow at_distributor system_file:file execute_no_trans;
 allow at_distributor zygote_exec:file { read getattr open execute execute_no_trans };
+allow at_distributor system_server:binder { transfer call };

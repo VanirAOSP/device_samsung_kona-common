@@ -6,3 +6,6 @@ allow sysinit camera_data_file:dir search;
 allow sysinit efs_file:dir search;
 allow sysinit camera_data_file:dir { write add_name };
 allow sysinit efs_file:file { open read write };
+allow sysinit cache_file:dir { write add_name };
+allow sysinit cache_file:file { write create open };
+allow sysinit kernel:system syslog_read;

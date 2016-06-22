@@ -16,7 +16,6 @@
 
 #include <stdlib.h>
 #include <malloc.h>
-#include "../upstream-dlmalloc/malloc.c"
 
 extern "C" int _ZN7android6Parcel13writeString16EPKDsj();
 extern "C" int _ZN7android6Parcel13writeString16EPKtj(){
@@ -44,7 +43,7 @@ extern "C" void *CRYPTO_malloc(int num, const char *file, int line){
 	if (num <= 0)
 		return NULL;
 	else
-		return dlmalloc(num);
+		return malloc(num);
 }
 
 extern "C" void RIL_register_socket();
@@ -54,13 +53,12 @@ extern "C" int MsgHeader_fields = NULL;
 
 extern "C" int RIL_SIM_SAP_DISCONNECT_REQ_fields = NULL;
 
-extern "C" char GetClientData();
-extern "C" char GetClientData() {
-	return NULL;
-}
+extern "C" void GetClientData();
+extern "C" void GetClientData() {}
 
 extern "C" void SetClientData(char);
 extern "C" void SetClientData(char) {}
 
 extern "C" void Connect_RILD_Second();
 extern "C" void Connect_RILD_Second() {}
+

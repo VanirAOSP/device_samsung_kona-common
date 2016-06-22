@@ -28,25 +28,18 @@ TARGET_HAS_CAM_FLASH := false
 
 # Init files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/init.smdk4x12.usb.rc:root/init.smdk4x12.usb.rc \
-    $(LOCAL_PATH)/rootdir/ueventd.smdk4x12.rc:root/ueventd.smdk4x12.rc \
-    $(LOCAL_PATH)/rootdir/ueventd.smdk4x12.rc:recovery/root/ueventd.smdk4x12.rc \
     $(LOCAL_PATH)/rootdir/fstab.smdk4x12:root/fstab.smdk4x12
 
 # Packages
 PRODUCT_PACKAGES += \
-    libc_pthread \
     libsamsung_symbols \
-    libsecril-client \
-    libsecril-client-sap \
     tiny_hw \
     tinyplay \
     SamsungServiceMode \
-    VoicePlus
+    VoicePlus \
+    Stk
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml \
-    $(LOCAL_PATH)/configs/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     $(LOCAL_PATH)/configs/nvram_mfg.txt:system/etc/wifi/nvram_mfg.txt \
     $(LOCAL_PATH)/configs/nvram_mfg.txt_murata:system/etc/wifi/nvram_mfg.txt_murata \
     $(LOCAL_PATH)/configs/nvram_net.txt:system/etc/wifi/nvram_net.txt \
@@ -89,7 +82,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_CHARACTERISTICS := tablet
 
 $(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
-
 $(call inherit-product, vendor/samsung/kona-common/kona-vendor.mk)
-
 $(call inherit-product, device/samsung/smdk4412-common/common.mk)

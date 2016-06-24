@@ -13,3 +13,4 @@ allow qc_kickstart vfat:file { read getattr open };
 allow qc_kickstart qc_kickstart_exec:file execute_no_trans;
 allow qc_kickstart tombstone_data_file:dir search;
 allow qc_kickstart userdata_block_device:blk_file write;
+allow qc_kickstart vfat:dir search;

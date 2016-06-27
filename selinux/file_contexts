@@ -23,6 +23,8 @@
 /data/misc/radio(/.*)?		u:object_r:radio_data_file:s0
 /data/.socket_stream		u:object_r:radio_data_file:s0
 /data/cfw(/.*)?			u:object_r:camera_data_file:s0
+/data/.cid.info			u:object_r:wifi_data_file:s0
+/efs/wifi/.mac.info             u:object_r:wifi_data_file:s0
 
 /dev/__cbd_msg_			u:object_r:radio_device:s0
 /dev/ttySAC0			u:object_r:serial_device:s0

@@ -1,2 +1,4 @@
 allow macloader efs_file:file { read open getattr };
 allow macloader efs_file:dir search;
+allow macloader wifi_data_file:file write;
+allow macloader wifi_data_file:file unlink;

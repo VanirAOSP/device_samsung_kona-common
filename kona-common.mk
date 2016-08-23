@@ -18,7 +18,7 @@ LOCAL_PATH := device/samsung/kona-common
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-PRODUCT_AAPT_CONFIG := normal large hdpi
+PRODUCT_AAPT_CONFIG := hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 TARGET_SCREEN_HEIGHT := 800

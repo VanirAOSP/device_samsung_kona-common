@@ -16,8 +16,17 @@
 
 #include <stdlib.h>
 
+// n5100-n5110
 // Do not check libsec-ril.so protobuf version
 
 extern "C" void _ZN6google8protobuf8internal13VerifyVersionEiiPKc();
 extern "C" void _ZN6google8protobuf8internal13VerifyVersionEiiPKc(){}
+
+// n5120
+// missing symbol from stock libril.so
+
+extern "C" int _ZN7android6Parcel13writeString16EPKDsj();
+extern "C" int _ZN7android6Parcel13writeString16EPKtj(){
+	return _ZN7android6Parcel13writeString16EPKDsj();
+}
 

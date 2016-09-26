@@ -19,14 +19,16 @@
 // n5100-n5110
 // Do not check libsec-ril.so protobuf version
 
+// google::protobuf::internal::VerifyVersion(int, int, char const*)
 extern "C" void _ZN6google8protobuf8internal13VerifyVersionEiiPKc();
 extern "C" void _ZN6google8protobuf8internal13VerifyVersionEiiPKc(){}
 
 // n5120
 // missing symbol from stock libril.so
 
+// android::Parcel::writeString16(char16_t const*, unsigned int)
 extern "C" int _ZN7android6Parcel13writeString16EPKDsj();
+// android::Parcel::writeString16(unsigned short const*, unsigned int)
 extern "C" int _ZN7android6Parcel13writeString16EPKtj(){
 	return _ZN7android6Parcel13writeString16EPKDsj();
 }
-

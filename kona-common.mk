@@ -36,15 +36,9 @@ PRODUCT_PACKAGES += \
     tiny_hw \
     tinyplay \
     SamsungServiceMode \
-    VoicePlus \
     Stk
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/nvram_mfg.txt:system/etc/wifi/nvram_mfg.txt \
-    $(LOCAL_PATH)/configs/nvram_mfg.txt_murata:system/etc/wifi/nvram_mfg.txt_murata \
-    $(LOCAL_PATH)/configs/nvram_net.txt:system/etc/wifi/nvram_net.txt \
-    $(LOCAL_PATH)/configs/nvram_net.txt_murata:system/etc/wifi/nvram_net.txt_murata \
-    $(LOCAL_PATH)/configs/80mac:system/etc/init.d/80mac \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 # Bluetooth

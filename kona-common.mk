@@ -76,5 +76,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_CHARACTERISTICS := tablet
 
 $(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
-$(call inherit-product, device/samsung/smdk4412-common/common.mk)
 $(call inherit-product, vendor/samsung/kona-common/kona-vendor.mk)
+$(call inherit-product, device/samsung/smdk4412-common/common.mk)

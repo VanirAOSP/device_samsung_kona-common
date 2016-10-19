@@ -17,6 +17,7 @@
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
 -include device/samsung/smdk4412-common/BoardCommonConfig.mk
+-include vendor/samsung/kona-common/BoardConfigVendor.mk
 
 LOCAL_PATH := device/samsung/kona-common
 
@@ -39,13 +40,8 @@ BOARD_USE_LEGACY_SENSORS_FUSION := false
 # Lights
 BOARD_EXYNOS4X12_TABLET_HAS_LED_BUTTONS := true
 
-# Charging mode
-BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
-BOARD_BATTERY_DEVICE_NAME := "battery"
+# Charger
 NO_CHARGER_LED := true
-
-# inherit from the proprietary version
--include vendor/samsung/kona/BoardConfigVendor.mk
 
 # Selinux
 BOARD_SEPOLICY_DIRS += device/samsung/kona-common/selinux

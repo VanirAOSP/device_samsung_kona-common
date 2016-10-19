@@ -14,7 +14,13 @@
 # limitations under the License.
 #
 
+$(call inherit-product, vendor/samsung/kona-common/kona-vendor.mk)
+$(call inherit-product, device/samsung/smdk4412-common/common.mk)
+$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
+
 LOCAL_PATH := device/samsung/kona-common
+
+PRODUCT_CHARACTERISTICS := tablet
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -50,10 +56,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
     $(LOCAL_PATH)/bluetooth/bt_config.conf:data/misc/bluedroid/bt_config.conf
 
-# Charger
- PRODUCT_PACKAGES += \
-    charger_res_images
-
 # Camera
 PRODUCT_PACKAGES += \
     camera.smdk4x12
@@ -71,10 +73,3 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cm.hardware.cabc=/sys/class/mdnie/mdnie/cabc
-
-# Set product characteristic to tablet, needed for some ui elements
-PRODUCT_CHARACTERISTICS := tablet
-
-$(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
-$(call inherit-product, vendor/samsung/kona-common/kona-vendor.mk)
-$(call inherit-product, device/samsung/smdk4412-common/common.mk)

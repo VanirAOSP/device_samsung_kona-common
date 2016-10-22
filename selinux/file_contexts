@@ -22,6 +22,7 @@
 /data/.cid.info			u:object_r:wifi_data_file:s0
 /efs/wifi/.mac.info             u:object_r:wifi_data_file:s0
 
+/dev/s3c-mfc			u:object_r:graphics_device:s0
 /dev/__cbd_msg_			u:object_r:radio_device:s0
 /dev/ttySAC0			u:object_r:serial_device:s0
 /dev/ttySAC1			u:object_r:gps_device:s0

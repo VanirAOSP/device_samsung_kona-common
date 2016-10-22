@@ -14,10 +14,6 @@
 # limitations under the License.
 #
 
-$(call inherit-product, vendor/samsung/kona-common/kona-vendor.mk)
-$(call inherit-product, device/samsung/smdk4412-common/common.mk)
-$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
-
 LOCAL_PATH := device/samsung/kona-common
 
 PRODUCT_CHARACTERISTICS := tablet
@@ -25,7 +21,7 @@ PRODUCT_CHARACTERISTICS := tablet
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 PRODUCT_AAPT_CONFIG := hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 TARGET_SCREEN_HEIGHT := 800
 TARGET_SCREEN_WIDTH := 1280
@@ -73,3 +69,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cm.hardware.cabc=/sys/class/mdnie/mdnie/cabc
+
+$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
+$(call inherit-product, vendor/samsung/kona-common/kona-vendor.mk)
+$(call inherit-product, device/samsung/smdk4412-common/common.mk)

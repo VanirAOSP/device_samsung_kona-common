@@ -16,10 +16,12 @@
 
 LOCAL_PATH := device/samsung/kona-common
 
+PRODUCT_CHARACTERISTICS := tablet
+
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 PRODUCT_AAPT_CONFIG := hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 TARGET_SCREEN_HEIGHT := 800
 TARGET_SCREEN_WIDTH := 1280
@@ -36,15 +38,9 @@ PRODUCT_PACKAGES += \
     tiny_hw \
     tinyplay \
     SamsungServiceMode \
-    VoicePlus \
     Stk
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/nvram_mfg.txt:system/etc/wifi/nvram_mfg.txt \
-    $(LOCAL_PATH)/configs/nvram_mfg.txt_murata:system/etc/wifi/nvram_mfg.txt_murata \
-    $(LOCAL_PATH)/configs/nvram_net.txt:system/etc/wifi/nvram_net.txt \
-    $(LOCAL_PATH)/configs/nvram_net.txt_murata:system/etc/wifi/nvram_net.txt_murata \
-    $(LOCAL_PATH)/configs/80mac:system/etc/init.d/80mac \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 # Bluetooth
@@ -55,10 +51,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/iot_devlist.conf:system/etc/bluetooth/iot_devlist.conf \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
     $(LOCAL_PATH)/bluetooth/bt_config.conf:data/misc/bluedroid/bt_config.conf
-
-# Charger
- PRODUCT_PACKAGES += \
-    charger_res_images
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -78,9 +70,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cm.hardware.cabc=/sys/class/mdnie/mdnie/cabc
 
-# Set product characteristic to tablet, needed for some ui elements
-PRODUCT_CHARACTERISTICS := tablet
-
-$(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, vendor/samsung/kona-common/kona-vendor.mk)
 $(call inherit-product, device/samsung/smdk4412-common/common.mk)

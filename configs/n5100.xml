@@ -261,7 +261,7 @@ We are able to have most of our routing static so do that
         <ctl name="AIF1ADC1 HPF Switch" val="0"/>
         <ctl name="IN1L Volume" val="30"/>
         <ctl name="MIXINL IN1L Volume" val="0"/>
-        <ctl name="AIF1ADC1 Volume" val="120"/>
+        <ctl name="AIF1ADC1 Volume" val="100"/>
     </path>
 </device>
 <device name="back-mic">

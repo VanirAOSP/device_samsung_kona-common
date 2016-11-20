@@ -56,6 +56,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     camera.smdk4x12
 
+# RIL
+PRODUCT_PACKAGES += \
+    libsecril-client \
+    libsecril-client-sap
+
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.smdk4x12

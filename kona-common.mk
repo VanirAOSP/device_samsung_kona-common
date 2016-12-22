@@ -30,7 +30,15 @@ TARGET_HAS_CAM_FLASH := false
 
 # Init files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/fstab.smdk4x12:root/fstab.smdk4x12
+    $(LOCAL_PATH)/rootdir/fstab.smdk4x12:root/fstab.smdk4x12 \
+    $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.smdk4x12.rc:recovery/root/ueventd.smdk4x12.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.smdk4x12.rc:root/ueventd.smdk4x12.rc
+
+# Stock MM blobs
+PRODUCT_PACKAGES += \
+    libxml2 \
+    libprotobuf-cpp-full
 
 # Packages
 PRODUCT_PACKAGES += \
@@ -40,6 +48,7 @@ PRODUCT_PACKAGES += \
     SamsungServiceMode \
     Stk
 
+# Codecs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
@@ -60,6 +69,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libsecril-client \
     libsecril-client-sap
+
+# Stock parameters
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.hwrotation=270 \
+    ro.sf.lcd_density=213 \
+    ro.hdcp2.rx=tz
 
 # Sensors
 PRODUCT_PACKAGES += \

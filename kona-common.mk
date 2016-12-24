@@ -63,9 +63,6 @@ PRODUCT_PACKAGES += \
 
 # Stock parameters
 PRODUCT_PROPERTY_OVERRIDES += \
-    rild.libpath=/system/lib/libsec-ril.so \
-    rild.libargs=-d /dev/ttyS0 \
-    ro.lcd_min_brightness=20 \
     ro.sf.hwrotation=270 \
     ro.sf.lcd_density=213 \
     ro.hdcp2.rx=tz

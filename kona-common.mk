@@ -52,15 +52,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
-# Bluetooth
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/bluetooth/auto_pair_devlist.conf:system/etc/bluetooth/auto_pair_devlist.conf \
-    $(LOCAL_PATH)/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf \
-    $(LOCAL_PATH)/bluetooth/bt_stack.conf:system/etc/bluetooth/bt_stack.conf \
-    $(LOCAL_PATH)/bluetooth/iot_devlist.conf:system/etc/bluetooth/iot_devlist.conf \
-    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
-    $(LOCAL_PATH)/bluetooth/bt_config.conf:data/misc/bluedroid/bt_config.conf
-
 # Camera
 PRODUCT_PACKAGES += \
     camera.smdk4x12
@@ -72,6 +63,9 @@ PRODUCT_PACKAGES += \
 
 # Stock parameters
 PRODUCT_PROPERTY_OVERRIDES += \
+    rild.libpath=/system/lib/libsec-ril.so \
+    rild.libargs=-d /dev/ttyS0 \
+    ro.lcd_min_brightness=20 \
     ro.sf.hwrotation=270 \
     ro.sf.lcd_density=213 \
     ro.hdcp2.rx=tz

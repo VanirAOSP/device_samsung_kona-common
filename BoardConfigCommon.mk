@@ -21,6 +21,9 @@ LOCAL_PATH := device/samsung/kona-common
 # For KK blobs
 MALLOC_IMPL := dlmalloc
 
+# Recovery
+TARGET_RECOVERY_DENSITY := mdpi
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 

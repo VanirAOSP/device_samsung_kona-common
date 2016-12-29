@@ -67,6 +67,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=213 \
     ro.hdcp2.rx=tz
 
+# RIL
+PRODUCT_PACKAGES += \
+    libsecril-client \
+    libsecril-client-sap
+
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.smdk4x12

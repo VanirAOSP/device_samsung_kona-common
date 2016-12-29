@@ -24,7 +24,6 @@
 #include <cutils/log.h>
 #include <string.h>
 
-
 #include "CompassSensor.h"
 
 
@@ -127,7 +126,7 @@ int CompassSensor::setDelay(int32_t handle, int64_t ns)
 
  //   ALOGD("CompassSensor::~setDelay(%d, %lld) val = %d", handle, ns, val);
 
-    strcpy(&input_sysfs_path[input_sysfs_path_len], "delay");
+    strcpy(&input_sysfs_path[input_sysfs_path_len], "poll_delay");
     fd = open(input_sysfs_path, O_RDWR);
     if (fd >= 0) {
         char buf[80];
@@ -165,11 +164,11 @@ int CompassSensor::readEvents(sensors_event_t* data, int count)
         if (type == EV_ABS) {
             float value = event->value;
             if (event->code == EVENT_TYPE_MAGV_X) {
-                mPendingEvent.magnetic.x = (float)value / 1000.0f;
+                mPendingEvent.magnetic.x = (float)value / 20000.0f;
             } else if (event->code == EVENT_TYPE_MAGV_Y) {
-                mPendingEvent.magnetic.y = (float)value / 1000.0f;
+                mPendingEvent.magnetic.y = (float)value / 20000.0f;
             } else if (event->code == EVENT_TYPE_MAGV_Z) {
-                mPendingEvent.magnetic.z = (float)value / 1000.0f;
+                mPendingEvent.magnetic.z = (float)value / 20000.0f;
             }
         } else if (type == EV_SYN) {
             mPendingEvent.timestamp = timevalToNano(event->time);

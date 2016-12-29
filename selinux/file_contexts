@@ -18,14 +18,16 @@
 /data/system/gps(/.*)?		u:object_r:gps_data_file:s0
 /data/misc/radio(/.*)?		u:object_r:radio_data_file:s0
 /data/.socket_stream		u:object_r:radio_data_file:s0
-/data/.cid.info			u:object_r:wifi_data_file:s0
-/efs/wifi/.mac.info             u:object_r:wifi_data_file:s0
+/data/cfw(/.*)?			u:object_r:camera_data_file:s0
 
+/dev/s3c-mfc			u:object_r:graphics_device:s0
 /dev/__cbd_msg_			u:object_r:radio_device:s0
 /dev/ttySAC0			u:object_r:serial_device:s0
 /dev/ttySAC1			u:object_r:gps_device:s0
 /dev/ttySAC2			u:object_r:serial_device:s0
 /dev/ttyGS0			u:object_r:serial_device:s0
+/dev/mali			u:object_r:gpu_device:s0
+/dev/ump			u:object_r:gpu_device:s0
 /dev/umts_boot0			u:object_r:radio_device:s0
 /dev/umts_ipc0			u:object_r:radio_device:s0
 /dev/umts_rfs0			u:object_r:radio_device:s0

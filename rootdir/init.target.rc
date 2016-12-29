@@ -9,17 +9,6 @@ on init
     export VIBE_PIPE_PATH /dev/pipes
     mkdir /dev/pipes 0771 system system
 
-# MACloader
-    rm /data/.cid.info
-    chown system system /efs/wifi/.mac.cob
-    chown system system /efs/wifi/.mac.info
-    chown system system /data/.cid.info
-    chmod 0666 /efs/wifi/.mac.cob
-    chmod 0666 /efs/wifi/.mac.info
-    chmod 0666 /data/.cid.info
-    copy /efs/wifi/.mac.cob /efs/wifi/.mac.info
-    write /data/.cid.info murata
-
 ############################
 on post-fs-data
 ############################
@@ -327,6 +316,19 @@ on property:sys.boot_completed=1
 # connections on high-throughput links get dropped when
 # an ack packet comes out of order
     write /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal 1
+
+# MACloader
+    rm /data/.cid.info
+    rm /efs/wifi/.mac.info
+    copy /efs/wifi/.mac.cob /efs/wifi/.mac.info
+    chown system system /efs/wifi/.mac.cob
+    chown system system /efs/wifi/.mac.info
+    chmod 0666 /efs/wifi/.mac.cob
+    chmod 0666 /efs/wifi/.mac.info
+    start macloader
+    write /data/.cid.info murata
+    chown system root /data/.cid.info
+    chmod 0666 /data/.cid.info
 
 ############################
 # Services

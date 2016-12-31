@@ -21,6 +21,9 @@ LOCAL_PATH := device/samsung/kona-common
 # For KK blobs
 MALLOC_IMPL := dlmalloc
 
+# Do not try to load dhd.ko 
+WIFI_DRIVER_MODULE_PATH :=
+
 # Recovery
 TARGET_RECOVERY_DENSITY := mdpi
 

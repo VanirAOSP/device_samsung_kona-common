@@ -2006,7 +2006,7 @@ int exynos_camera_preview(struct exynos_camera *exynos_camera)
 			ALOGE("%s: Error in dequeueing buffer", __func__);
 			goto error;
 		}
-		ret = exynos_camera->gralloc->lock(exynos_camera->gralloc, *window_buffer, GRALLOC_USAGE_YUV_ADDR | GRALLOC_USAGE_SW_WRITE_OFTEN, 0, 0, width, height, &window_data);
+		ret = exynos_camera->gralloc->lock(exynos_camera->gralloc, *window_buffer, GRALLOC_USAGE_SW_WRITE_OFTEN, 0, 0, width, height, &window_data);
 
 		if (window_data == NULL || ret == -EINVAL) {
 			ALOGE("%s: Unable to lock gralloc", __func__);
@@ -3452,13 +3452,13 @@ int exynos_camera_set_preview_window(struct camera_device *dev,
 	if (w->set_buffer_count == NULL || w->set_usage == NULL || w->set_buffers_geometry == NULL)
 		goto error;
 
-	rc = w->set_buffer_count(w, EXYNOS_CAMERA_GRALLOC_BUFFERS_COUNT);
+	rc = w->set_usage(w, GRALLOC_USAGE_CAMERA | GRALLOC_USAGE_HW_FIMC1 | GRALLOC_USAGE_EXTERNAL_DISP | GRALLOC_USAGE_SW_WRITE_OFTEN);
 	if (rc) {
 		ALOGE("%s: Unable to set buffer count: %d", __func__, EXYNOS_CAMERA_GRALLOC_BUFFERS_COUNT);
 		goto error;
 	}
 
-	rc = w->set_usage(w, GRALLOC_USAGE_CAMERA | GRALLOC_USAGE_HW_FIMC1 | GRALLOC_USAGE_EXTERNAL_DISP | GRALLOC_USAGE_SW_WRITE_OFTEN);
+	rc = w->set_usage(w, GRALLOC_USAGE_SW_WRITE_OFTEN);
 	if (rc) {
 		ALOGE("%s: Unable to set usage", __func__);
 		goto error;

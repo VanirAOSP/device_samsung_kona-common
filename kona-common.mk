@@ -61,12 +61,6 @@ PRODUCT_PACKAGES += \
     libsecril-client \
     libsecril-client-sap
 
-# Stock parameters
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.hwrotation=270 \
-    ro.sf.lcd_density=213 \
-    ro.hdcp2.rx=tz
-
 # RIL
 PRODUCT_PACKAGES += \
     libsecril-client \

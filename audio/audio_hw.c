@@ -3089,8 +3089,7 @@ static int adev_open(const hw_module_t* module, const char* name,
     /* RIL */
     ril_open(&adev->ril);
     pthread_mutex_unlock(&adev->lock);
-    /* register callback for wideband AMR setting */
-    ril_register_set_wb_amr_callback(audio_set_wb_amr_callback, (void *)adev);
+    adev->wb_amr = true;
 
     *device = &adev->hw_device.common;
 

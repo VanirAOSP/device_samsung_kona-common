@@ -20,3 +20,6 @@ allow cpboot-daemon sysfs:file write;
 allow cpboot-daemon userdata_block_device:blk_file { read open };
 allow cpboot-daemon efs_file:dir search;
 allow cpboot-daemon sysfs_wake_lock:file { open append };
+allow cpboot-daemon cgroup:file read;
+allow cpboot-daemon proc:file { open read };
+allow cpboot-daemon sysfs:file { open read };

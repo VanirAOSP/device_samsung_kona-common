@@ -16,3 +16,5 @@ allow geomagneticd self:capability dac_override;
 allow geomagneticd self:capability fowner;
 # load SHIM libraries
 allow init geomagneticd:process noatsecure;
+allow geomagneticd sysfs:dir { open read };
+allow geomagneticd sysfs:file { open read };

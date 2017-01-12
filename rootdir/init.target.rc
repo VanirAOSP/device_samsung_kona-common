@@ -13,6 +13,9 @@ on init
 on post-fs-data
 ############################
 
+# Telephony
+    chmod 0666 /proc/cmdline
+
 # Geomagnetic daemon
     write /data/system/yas.cfg 0
     restorecon /data/system/yas.cfg

@@ -56,18 +56,7 @@
     <string-array translatable="false" name="config_tether_bluetooth_regexs">
         <item>"bt-pan"</item>
     </string-array>
-	
-    <integer-array name="config_data_usage_network_types">
-        <item>0</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
-    </integer-array>
-    
+
     <!-- Hardware 'face' keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
          of the following keys present:

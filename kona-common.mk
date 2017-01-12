@@ -61,11 +61,6 @@ PRODUCT_PACKAGES += \
     libsecril-client \
     libsecril-client-sap
 
-# RIL
-PRODUCT_PACKAGES += \
-    libsecril-client \
-    libsecril-client-sap
-
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.smdk4x12

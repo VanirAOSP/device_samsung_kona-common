@@ -298,9 +298,20 @@ on post-fs-data
     restorecon_recursive /efs
     restorecon_recursive /tombstones/qcks
 
+    # Remove symlinks to avoid issues with migrate after nandroid restores
+    # Will be recreated at end of boot
+    rm /data/data/com.android.providers.telephony/databases/telephony.db
+    rm /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
+
 ############################
 on boot
 ############################
+
+    # Symlink telephony.db and preferred-apn.xml
+    mkdir /data/data/com.android.providers.telephony/databases 0700 radio radio
+    mkdir /data/data/com.android.providers.telephony/shared_prefs 0700 radio radio
+    symlink /data/user_de/0/com.android.providers.telephony/databases/telephony.db /data/data/com.android.providers.telephony/databases/telephony.db
+    symlink /data/user_de/0/com.android.providers.telephony/shared_prefs/preferred-apn.xml /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
 
 # Changing scheduler to noop during boot
     write /sys/block/mmcblk0/queue/scheduler noop
@@ -371,12 +382,6 @@ service qc_kickstart /system/bin/qcks s
     user root
     group radio cache inet misc audio sdcard_rw log
     seclabel u:r:qc_kickstart:s0
-
-service qmiproxy /system/bin/qmiproxy
-    class main
-    user radio
-    group radio gps
-    seclabel u:r:qmiproxy:s0
 
 service qmuxd /system/bin/qmuxd
     class main

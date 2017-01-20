@@ -15,6 +15,18 @@ on post-fs-data
 
 # Telephony
     chmod 0666 /proc/cmdline
+    
+    # Remove symlinks to avoid issues with migrate after nandroid restores
+    # Will be recreated at end of boot
+    rmdir /data/data/com.android.providers.telephony/databases
+    rmdir /data/data/com.android.providers.telephony/shared_prefs
+    rm /data/data/com.android.providers.telephony/databases
+    rm /data/data/com.android.providers.telephony/shared_prefs
+
+on property:sys.boot_completed=1
+    # Symlink directories to access telephony.db and preferred-apn.xml required by cbd
+    symlink /data/user_de/0/com.android.providers.telephony/databases /data/data/com.android.providers.telephony/databases
+    symlink /data/user_de/0/com.android.providers.telephony/shared_prefs /data/data/com.android.providers.telephony/shared_prefs
 
 # Geomagnetic daemon
     write /data/system/yas.cfg 0
@@ -298,20 +310,9 @@ on post-fs-data
     restorecon_recursive /efs
     restorecon_recursive /tombstones/qcks
 
-    # Remove symlinks to avoid issues with migrate after nandroid restores
-    # Will be recreated at end of boot
-    rm /data/data/com.android.providers.telephony/databases/telephony.db
-    rm /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
-
 ############################
 on boot
 ############################
-
-    # Symlink telephony.db and preferred-apn.xml
-    mkdir /data/data/com.android.providers.telephony/databases 0700 radio radio
-    mkdir /data/data/com.android.providers.telephony/shared_prefs 0700 radio radio
-    symlink /data/user_de/0/com.android.providers.telephony/databases/telephony.db /data/data/com.android.providers.telephony/databases/telephony.db
-    symlink /data/user_de/0/com.android.providers.telephony/shared_prefs/preferred-apn.xml /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
 
 # Changing scheduler to noop during boot
     write /sys/block/mmcblk0/queue/scheduler noop
